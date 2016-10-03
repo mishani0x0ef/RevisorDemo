@@ -6,8 +6,7 @@ namespace RestaurantReviewer
     {
         static void Main(string[] args)
         {
-            var locator = new ServiceLocator();
-            var revisor = locator.Resolve<Revisor>();
+            var revisor = ServiceLocator.Instance.Resolve<Revisor>();
             while (true)
             {
                 revisor.StartRevision();

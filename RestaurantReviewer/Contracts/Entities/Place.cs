@@ -1,4 +1,6 @@
-﻿namespace RestaurantReviewer.Contracts.Entities
+﻿using System;
+
+namespace RestaurantReviewer.Contracts.Entities
 {
     public abstract class Place : IClosable
     {
@@ -6,9 +8,17 @@
         public string Name { get; set; }
         public int Rating { get; set; }
         public bool IsClosed { get; private set; }
+
+        public event EventHandler OnClosed;
+
         public virtual void Close()
         {
-            IsClosed = true;
+            if(!IsClosed)
+            {
+                IsClosed = true;
+                // Place notify observers about event.
+                OnClosed(this, new EventArgs());
+            }
         }
     }
 }

@@ -4,11 +4,26 @@ using RestaurantReviewer.Services;
 
 namespace RestaurantReviewer
 {
+    // Singleton class. Only one instance of it exists.
     public class ServiceLocator
     {
         private IKernel _kernel;
 
-        public ServiceLocator()
+        private static object _locker = new object();
+        private static ServiceLocator _instance;
+        public static ServiceLocator Instance
+        {
+            get
+            {
+                if (_instance != null) return _instance;
+                lock (_locker)
+                {
+                    return _instance ?? (_instance = new ServiceLocator());
+                }
+            }
+        }
+
+        private ServiceLocator()
         {
             _kernel = new StandardKernel();
             RegisterDependencies();

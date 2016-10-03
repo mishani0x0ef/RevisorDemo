@@ -25,7 +25,7 @@ namespace RestaurantReviewer.Services
         {
             foreach (var place in _provider.GetPlaces())
             {
-                if (place.Rating < 3)
+                if (place.Rating < Settings.Instance.MinAllowedRating)
                 {
                     place.Close();
                 }

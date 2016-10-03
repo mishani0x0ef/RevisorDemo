@@ -38,6 +38,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,15 +51,21 @@
     <Compile Include="Contracts\Entities\Bar.cs" />
     <Compile Include="Contracts\Entities\IClosable.cs" />
     <Compile Include="Contracts\Entities\Place.cs" />
+    <Compile Include="Contracts\Entities\ReportType.cs" />
     <Compile Include="Contracts\Entities\Restaurant.cs" />
     <Compile Include="Contracts\Services\IPlaceService.cs" />
     <Compile Include="Contracts\Services\IPlaceProvider.cs" />
+    <Compile Include="Contracts\Services\IReportingService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Revisor.cs" />
     <Compile Include="ServiceLocator.cs" />
+    <Compile Include="Services\CsvReportGenerator.cs" />
+    <Compile Include="Services\CustomReportGenerator.cs" />
     <Compile Include="Services\PlaceService.cs" />
     <Compile Include="Services\PlaceProvider.cs" />
+    <Compile Include="Services\ReportingServiceProvider.cs" />
+    <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
